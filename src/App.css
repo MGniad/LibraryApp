@@ -57,3 +57,47 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.Modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.Modal .container{
+  position: absolute;
+  top:25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  background: white;
+}
+
+.AddNewBook{
+  border-bottom: 1px solid #ebebeb;
+}
+
+.AddNewBook .btn{
+padding: 1rem;
+width: 100%;
+height: 70px;
+
+}
+
+.AddNewBook .btn button{
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+  background-color: #0080ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.AddNewBook .btn button:hover{
+  filter: brightness(1.1);
+  transition: all 300ms ease;
+}
