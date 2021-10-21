@@ -1,10 +1,16 @@
 import React from 'react'
+import { Plus } from 'react-bootstrap-icons'
 
-function AddNewCategory(){
-    
+function AddNewCategory() {
+
     return (
         <div className='AddNewCategory'>
-            AddNewCategory
+            <div className="add-button">
+                <span>
+                    <Plus size="20" />
+
+                </span>
+            </div>
         </div>
     )
 }
