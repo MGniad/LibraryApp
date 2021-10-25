@@ -1,10 +1,9 @@
 import React from 'react'
 
-function Book(){
-    
+function Book({ book }) {
     return (
         <div className='Book'>
-            Book
+            {book.text}
         </div>
     )
 }

@@ -30,6 +30,7 @@
   background-image: url("./img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 /* User */
@@ -391,4 +392,29 @@ transition: all 300ms ease-in-out;
 
 .CategoryForm button:hover{
   filter: brightness(1.1);
+}
+
+.Books{
+  width: 450px;
+  height: 80%;
+  background-color: white;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  border-radius: 4px;
+  opacity: 0.9;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.Books .selected-category{
+  margin: 1rem 0;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.Books .books{
+  overflow: auto;
 }
