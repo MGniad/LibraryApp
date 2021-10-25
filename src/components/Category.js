@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Pencil, X, XCircle } from 'react-bootstrap-icons'
 import Categories from './Categories'
+import Modal from './Modal'
 import RenameCategory from './RenameCategory'
 
 function Category({ category, edit }) {
-
+    const [showModal, setShowModal] = useState(false)
     return (
         <div className='Category'>
             <div className="Project">
@@ -14,7 +15,7 @@ function Category({ category, edit }) {
                 <div className="btns">
                     {edit ?
                         <div className="edit-delete">
-                            <span className="edit">
+                            <span className="edit" onClick={() => setShowModal(true)}>
                                 <Pencil size="13" />
                             </span>
                             <span className="delete">
@@ -32,8 +33,11 @@ function Category({ category, edit }) {
                 </div>
             </div>
 
-
+            <Modal showModal={showModal}>
+                <RenameCategory category={category} setShowModal={setShowModal} />
+            </Modal>
         </div>
+
     )
 }
 

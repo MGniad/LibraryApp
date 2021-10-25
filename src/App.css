@@ -65,6 +65,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
 }
 
 .Modal .container{
@@ -338,4 +339,56 @@ transition: all 300ms ease-in-out;
 
 .Category .btns .edit-delete span.delete:hover{
   background: #ffacac;
+}
+
+.AddNewCategory .add-button span{
+  margin-right: 5px;
+}
+
+.CategoryForm{
+  background-color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.CategoryForm input{
+  width: 100%;
+  height: 40px;
+  margin: 15px 0;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.CategoryForm input:focus{
+  outline: none;
+  border-bottom: 1px solid #0080ff;
+}
+
+.CategoryForm button{
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 50%;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 300s ease-in-out;
+}
+
+.CategoryForm button.cancel{
+  left: 0;
+  background-color: #bebebe;
+}
+
+.CategoryForm button.confirm{
+  right: 0;
+  background-color: #0080ff;
+}
+
+.CategoryForm button:hover{
+  filter: brightness(1.1);
 }
