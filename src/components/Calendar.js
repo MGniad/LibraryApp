@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CalendarDate, CaretUp } from 'react-bootstrap-icons'
 import { calendarItems } from '../constants'
+import { BookContext } from '../context'
 
 function Calendar() {
-
+    const { setSelectedCategory } = useContext(BookContext)
 
 
     return (
@@ -23,7 +24,10 @@ function Calendar() {
                 {
 
                     calendarItems.map(item =>
-                        <div className="item" key={item}>
+                        <div className="item"
+                            key={item}
+                            onClick={() => setSelectedCategory(item)}
+                        >
                             {item}
                         </div>
                     )

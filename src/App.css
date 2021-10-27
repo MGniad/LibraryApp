@@ -104,81 +104,87 @@ height: 70px;
   transition: all 300ms ease;
 }
 
-.AddNewBook form{
-  padding: 1rem;
-  width: 500px;
+.BookForm {
+  padding: 1rem 1rem calc(1rem + 40px) 1rem;
+  width: 100%;
   background: white;
   border-radius: 4px;
   }
 
-.AddNewBook form .text input{
-  padding: 1rem;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  border: none;
-  font-size: 1.2rem;
+  .BookForm .text input{
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
 }
 
-.AddNewBook form .text input:focus{
+.BookForm .text input:focus{
   outline: none;
   border-bottom: 1px solid #0080ff;
 }
 
-.AddNewBook form p{
+.BookForm .remind {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.BookForm p{
   margin-left: 10px;
 }
 
-.AddNewBook form .title{
+.BookForm .title{
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
 
-.AddNewBook form .pick-day{
+.BookForm .pick-day{
   padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
-.AddNewBook form .pick-time{
+.BookForm .pick-time{
   padding: 1.5rem;
 }
 
-.AddNewBook form .pick-category{
+.BookForm .pick-category{
   padding: 0.5rem;
 }
 
-.AddNewBook form .pick-category .categories{
+.BookForm .pick-category .categories{
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 1rem 0 1rem;
 }
 
-.AddNewBook form .pick-category .categories .category{
+.BookForm .pick-category .categories .category{
   border: 1px solid #0080ff;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
 }
-.AddNewBook form .pick-category .categories .active{
+.BookForm .pick-category .categories .active{
   background: #0080ff;
   color: white;
 }
 
-.AddNewBook form .cancel{
+.BookForm .cancel{
   position: absolute;
   top: 0;
   right: 5px;
   cursor: pointer;
 }
 
-.AddNewBook form .confirm{
+.BookForm .confirm{
   position:absolute;
   bottom: 0;
   left: 0;
   width: 100%;
 }
 
-.AddNewBook form .confirm button{
+.BookForm .confirm button{
   width: 100%;
   height: 40px;
   background: #0080ff;
@@ -417,4 +423,69 @@ transition: all 300ms ease-in-out;
 
 .Books .books{
   overflow: auto;
+}
+
+.Book{
+  padding: 0.5rem 1rem;
+}
+
+.Book .book-container{
+  display: flex;
+  align-items: center;
+}
+
+.Book .book-container span{
+  cursor: pointer;
+}
+
+.Book .book-container .text{
+  position: relative;
+  flex: 1;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.Book .book-container .text span{
+  font-size: 0.8rem;
+  color:#bebebe;
+}
+
+
+
+.Book .book-container .text .line{
+height: 1px;
+background: #bebebe;
+position: absolute;
+top: 25%;
+width: 0;
+transition: width 250ms ease-in-out;
+}
+
+.Book .book-container .text .line-trough{
+width: 100%;
+}
+
+.Book .book-container .add-to-next-day{
+  margin-right: 10px;
+
+}
+
+.EditBooks{
+position: absolute;
+bottom: 40px;
+left: calc(40px + 450px + 40px);
+background: white;
+height: 80%;
+width: 450px;
+border-radius: 4px;
+opacity: 0.9;
+}
+
+.EditBooks .header{
+  margin: 1rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #eeeeee;
+
 }
