@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CaretUp, Journal, Journals, Palette, PencilFill } from 'react-bootstrap-icons';
+import { BookContext } from '../context';
 import AddNewCategory from './AddNewCategory'
 import Category from './Category'
 
@@ -8,11 +9,7 @@ function Categories() {
     const [edit, setEdit] = useState(false);
     const pencilColor = edit ? "#1ec94c" : "#000000"
 
-    const categories = [
-        { id: 1, name: "crime", numOfBooks: 0 },
-        { id: 2, name: "drama", numOfBooks: 1 },
-        { id: 3, name: "love", numOfBooks: 2 },
-    ]
+    const { categories } = useContext(BookContext)
 
 
     return (

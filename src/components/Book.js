@@ -23,7 +23,7 @@ function Book({ book }) {
                 </div>
                 <div className="text">
                     <p style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} by: {book.author}</p>
-                    <span>{book.time} - {book.category}</span>
+                    <span>{book.time} - {book.categoryName}</span>
                     <div className={`line ${book.checked ? 'line-trough' : ''}`}></div>
 
                 </div>
