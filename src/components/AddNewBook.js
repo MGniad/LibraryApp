@@ -2,9 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import Modal from './Modal'
 import BookForm from './BookForm'
 import { BookContext } from '../context'
+import { calendarItems } from '../constants'
+import firebase from '../firebase'
+import moment from 'moment'
+import randomColor from 'randomcolor'
 
 function AddNewBook() {
-    const { selectedCategory } = useContext(BookContext)
+    const { categories, selectedCategory } = useContext(BookContext)
 
     const [showModal, setShowModal] = useState(false)
     const [text, setText] = useState('')
@@ -15,14 +19,35 @@ function AddNewBook() {
 
 
 
-    const categories = [
-        { id: 1, name: "crime", numOfBooks: 0 },
-        { id: 2, name: "drama", numOfBooks: 1 },
-        { id: 3, name: "love", numOfBooks: 2 },
-    ]
+
 
     function handleSubmit(e) {
+        e.preventDefault()
 
+        if (text && !calendarItems.includes(bookCategory)) {
+
+            firebase
+                .firestore()
+                .collection('books')
+                .add(
+                    {
+                        text: text,
+                        author: author,
+                        date: moment(day).format('DD/MM/YYYY'),
+                        day: moment(day).format('d'),
+                        time: moment(time).format('hh:MM A'),
+                        checked: false,
+                        color: randomColor(),
+                        categoryName: bookCategory
+                    }
+                )
+
+            setShowModal(false)
+            setText('')
+            setAuthor('')
+            setDay(new Date())
+            setTime(new Date())
+        }
     }
 
     useEffect(() => {

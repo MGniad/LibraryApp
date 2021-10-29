@@ -2,11 +2,35 @@ import React, { useState } from 'react'
 import Modal from './Modal'
 import { Plus } from 'react-bootstrap-icons'
 import CategoryForm from './CategoryForm'
+import firebase from '../firebase'
 
 function AddNewCategory() {
     const [showModal, setShowModal] = useState(false)
     const [categoryName, setCategoryName] = useState('')
+
     function handleSubmit(e) {
+        e.preventDefault()
+
+        if (categoryName) {
+            const categoriesRef = firebase.firestore().collection('categories')
+
+            categoriesRef
+                .where('name', '==', categoryName)
+                .get(querySnapshot => {
+                    if (querySnapshot.empty) {
+                        categoriesRef
+                            .add({
+                                name: categoryName
+                            }
+                            )
+                    } else {
+                        alert('Category already exist')
+                    }
+                })
+
+            setShowModal(false)
+            setCategoryName('')
+        }
 
     }
 
