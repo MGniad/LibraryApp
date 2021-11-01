@@ -30,10 +30,10 @@ function Next7Days({ books }) {
                         <div className="day">
                             <div className="name">
                                 {moment(day.number, 'd').format('dddd')}
-                                {day.number === moment().format('d') && '(Today'}
+                                {day.number === moment().format('d') && '(Today)'}
                             </div>
                             <div className="total-books">
-                                {day.books.lenght}
+                                {day.books.length}
                             </div>
                         </div>
                         <div className="books">

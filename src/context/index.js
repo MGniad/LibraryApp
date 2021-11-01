@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { useBooks, useCategories } from "../hooks"
+import { useBooks, useCategories, useFilterBooks, useFiltersBooks } from "../hooks"
 
 const BookContext = createContext()
 
@@ -11,6 +11,8 @@ function BookContextProvider({ children }) {
 
     const categories = useCategories(books)
 
+    const filteredBooks = useFilterBooks(books, selectedCategory)
+
     return (
         <BookContext.Provider
             value={
@@ -18,7 +20,7 @@ function BookContextProvider({ children }) {
                     selectedCategory,
                     setSelectedCategory,
 
-                    books,
+                    books: filteredBooks,
                     categories,
                 }
             }
