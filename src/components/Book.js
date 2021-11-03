@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
 import firebase from '../firebase'
+import moment from 'moment'
 
 function Book({ book }) {
     const [hover, setHover] = useState(false)
@@ -12,12 +13,43 @@ function Book({ book }) {
             .doc(book.id)
             .delete()
     }
+
+    const checkBook = book => {
+        firebase
+            .firestore()
+            .collection('books')
+            .doc(book.id)
+            .update({
+                checked: !book.checked
+            })
+
+    }
+
+const repeatNextDay = book => {
+    const nextDayDate = moment(book.date, 'DD/MM/YYYY').add(1, 'days')
+
+    const repeatedBook = {
+        ...book,
+        checked : false,
+        date : nextDayDate.format('DD/MM/YYYY'),
+        day : nextDayDate.format('d'),
+    }
+
+    delete repeatedBook.id
+
+    firebase
+    .firestore()
+    .collection('books')
+    .add(repeatedBook)
+}
+
     return (
         <div className='Book'>
             <div className="book-container"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}>
-                <div className="check-book">
+                <div className="check-book"
+                    onClick={() => checkBook(book)}>
                     {
                         book.checked ?
                             <span className="checked">
@@ -36,7 +68,8 @@ function Book({ book }) {
                     <div className={`line ${book.checked ? 'line-trough' : ''}`}></div>
 
                 </div>
-                <div className="add-to-next-day">
+                <div className="add-to-next-day"
+                onClick={ () => repeatNextDay(book)}>
                     {
                         book.checked &&
                         <span>

@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* App */
@@ -59,7 +59,7 @@
   justify-content: flex-end;
 }
 
-.Modal{
+.Modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,26 +69,25 @@
   z-index: 100;
 }
 
-.Modal .container{
+.Modal .container {
   position: absolute;
-  top:25%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -25%);
   background: white;
 }
 
-.AddNewBook{
+.AddNewBook {
   border-bottom: 1px solid #ebebeb;
 }
 
-.AddNewBook .btn{
-padding: 1rem;
-width: 100%;
-height: 70px;
-
+.AddNewBook .btn {
+  padding: 1rem;
+  width: 100%;
+  height: 70px;
 }
 
-.AddNewBook .btn button{
+.AddNewBook .btn button {
   width: 100%;
   height: 100%;
   border: none;
@@ -99,7 +98,7 @@ height: 70px;
   cursor: pointer;
 }
 
-.AddNewBook .btn button:hover{
+.AddNewBook .btn button:hover {
   filter: brightness(1.1);
   transition: all 300ms ease;
 }
@@ -109,17 +108,17 @@ height: 70px;
   width: 100%;
   background: white;
   border-radius: 4px;
-  }
-
-  .BookForm .text input{
-    padding: 1rem;
-    width: 100%;
-    margin-bottom: 0.5rem;
-    border: none;
-    font-size: 1.2rem;
 }
 
-.BookForm .text input:focus{
+.BookForm .text input {
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.BookForm .text input:focus {
   outline: none;
   border-bottom: 1px solid #0080ff;
 }
@@ -130,61 +129,61 @@ height: 70px;
   padding: 0.5rem;
 }
 
-.BookForm p{
+.BookForm p {
   margin-left: 10px;
 }
 
-.BookForm .title{
+.BookForm .title {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
 
-.BookForm .pick-day{
+.BookForm .pick-day {
   padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
-.BookForm .pick-time{
+.BookForm .pick-time {
   padding: 1.5rem;
 }
 
-.BookForm .pick-category{
+.BookForm .pick-category {
   padding: 0.5rem;
 }
 
-.BookForm .pick-category .categories{
+.BookForm .pick-category .categories {
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 1rem 0 1rem;
 }
 
-.BookForm .pick-category .categories .category{
+.BookForm .pick-category .categories .category {
   border: 1px solid #0080ff;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
 }
-.BookForm .pick-category .categories .active{
+.BookForm .pick-category .categories .active {
   background: #0080ff;
   color: white;
 }
 
-.BookForm .cancel{
+.BookForm .cancel {
   position: absolute;
   top: 0;
   right: 5px;
   cursor: pointer;
 }
 
-.BookForm .confirm{
-  position:absolute;
+.BookForm .confirm {
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
 }
 
-.BookForm .confirm button{
+.BookForm .confirm button {
   width: 100%;
   height: 40px;
   background: #0080ff;
@@ -193,10 +192,9 @@ height: 70px;
   border: none;
   border-radius: 0 0 4px 4px;
   cursor: pointer;
-
 }
 
-.Calendar{
+.Calendar {
   padding: 1rem;
   border-bottom: 1px solid #ebebeb;
 }
@@ -206,13 +204,13 @@ height: 70px;
   align-items: center;
 }
 
-.Calendar .header .title{
+.Calendar .header .title {
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-.Calendar .header .title p{
+.Calendar .header .title p {
   margin-left: 5px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -220,7 +218,7 @@ height: 70px;
 
 .Calendar .header .btns span {
   border-radius: 50%;
-  cursor:pointer;
+  cursor: pointer;
   width: 25px;
   height: 25px;
   display: flex;
@@ -228,12 +226,12 @@ height: 70px;
   justify-content: center;
 }
 
-.Calendar .header .btns span:hover  {
+.Calendar .header .btns span:hover {
   background-color: #ebebeb;
   transition: all 300ms ease-in-out;
 }
 
-.Calendar .items .item{
+.Calendar .items .item {
   padding: 0.25rem;
   margin: 5px;
   font-size: 1rem;
@@ -245,7 +243,7 @@ height: 70px;
   border-bottom: 1px solid #ebebeb;
 }
 
-.Categories .header{
+.Categories .header {
   display: flex;
   align-items: center;
 }
@@ -267,11 +265,11 @@ height: 70px;
   align-items: center;
 }
 
-.Categories .header .btns span .edit{
+.Categories .header .btns span .edit {
   margin-right: 5px;
 }
 
-.Categories .header .btns span{
+.Categories .header .btns span {
   border-radius: 50%;
   cursor: pointer;
   width: 25px;
@@ -281,16 +279,16 @@ height: 70px;
   justify-content: center;
 }
 
-.Categories .header .btns span:hover{
-background-color: #ebebeb;
-transition: all 300ms ease-in-out;  
+.Categories .header .btns span:hover {
+  background-color: #ebebeb;
+  transition: all 300ms ease-in-out;
 }
 
-.Categories .items{
+.Categories .items {
   padding: 0.5rem;
 }
 
-.Category{
+.Category {
   position: relative;
   display: flex;
   align-items: center;
@@ -299,17 +297,17 @@ transition: all 300ms ease-in-out;
   font-size: 1rem;
 }
 
-.Category .name{
+.Category .name {
   cursor: pointer;
   word-break: break-all;
 }
 
-.Category .btns{
+.Category .btns {
   display: flex;
   align-items: center;
 }
 
-.Category .btns .total-books{
+.Category .btns .total-books {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -323,13 +321,13 @@ transition: all 300ms ease-in-out;
   border-radius: 50%;
 }
 
-.Category .btns .edit-delete{
+.Category .btns .edit-delete {
   position: absolute;
   right: 0;
   display: flex;
 }
 
-.Category .btns .edit-delete span{
+.Category .btns .edit-delete span {
   border-radius: 50%;
   cursor: pointer;
   width: 25px;
@@ -340,19 +338,19 @@ transition: all 300ms ease-in-out;
   transition: background 300ms ease-in-out;
 }
 
-.Category .btns .edit-delete span.edit:hover{
+.Category .btns .edit-delete span.edit:hover {
   background: #acffac;
 }
 
-.Category .btns .edit-delete span.delete:hover{
+.Category .btns .edit-delete span.delete:hover {
   background: #ffacac;
 }
 
-.AddNewCategory .add-button span{
+.AddNewCategory .add-button span {
   margin-right: 5px;
 }
 
-.CategoryForm{
+.CategoryForm {
   background-color: white;
   padding: 1rem;
   border-radius: 4px;
@@ -360,7 +358,7 @@ transition: all 300ms ease-in-out;
   padding-bottom: 40px;
 }
 
-.CategoryForm input{
+.CategoryForm input {
   width: 100%;
   height: 40px;
   margin: 15px 0;
@@ -368,12 +366,12 @@ transition: all 300ms ease-in-out;
   font-size: 1.2rem;
 }
 
-.CategoryForm input:focus{
+.CategoryForm input:focus {
   outline: none;
   border-bottom: 1px solid #0080ff;
 }
 
-.CategoryForm button{
+.CategoryForm button {
   position: absolute;
   bottom: 0;
   height: 40px;
@@ -386,21 +384,21 @@ transition: all 300ms ease-in-out;
   transition: 300s ease-in-out;
 }
 
-.CategoryForm button.cancel{
+.CategoryForm button.cancel {
   left: 0;
   background-color: #bebebe;
 }
 
-.CategoryForm button.confirm{
+.CategoryForm button.confirm {
   right: 0;
   background-color: #0080ff;
 }
 
-.CategoryForm button:hover{
+.CategoryForm button:hover {
   filter: brightness(1.1);
 }
 
-.Books{
+.Books {
   width: 450px;
   height: 80%;
   background-color: white;
@@ -410,9 +408,10 @@ transition: all 300ms ease-in-out;
   border-radius: 4px;
   opacity: 0.9;
   padding: 0 0.5rem 0.5rem 0.5rem;
+  overflow-y: auto;
 }
 
-.Books .selected-category{
+.Books .selected-category {
   margin: 1rem 0;
   text-transform: capitalize;
   font-size: 1.2rem;
@@ -421,85 +420,81 @@ transition: all 300ms ease-in-out;
   border-bottom: 1px solid #eeeeee;
 }
 
-.Books .books{
+.Books .books {
   overflow: auto;
 }
 
-.Book{
+.Book {
   padding: 0.5rem 1rem;
 }
 
-.Book .book-container{
+.Book .book-container {
   display: flex;
   align-items: center;
 }
 
-.Book .book-container span{
+.Book .book-container span {
   cursor: pointer;
 }
 
-.Book .book-container .text{
+.Book .book-container .text {
   position: relative;
   flex: 1;
   margin: 0 10px;
   cursor: pointer;
 }
 
-.Book .book-container .text span{
+.Book .book-container .text span {
   font-size: 0.8rem;
-  color:#bebebe;
+  color: #bebebe;
 }
 
-
-
-.Book .book-container .text .line{
-height: 1px;
-background: #bebebe;
-position: absolute;
-top: 25%;
-width: 0;
-transition: width 250ms ease-in-out;
+.Book .book-container .text .line {
+  height: 1px;
+  background: #bebebe;
+  position: absolute;
+  top: 25%;
+  width: 0;
+  transition: width 250ms ease-in-out;
 }
 
-.Book .book-container .text .line-trough{
-width: 100%;
+.Book .book-container .text .line-trough {
+  width: 100%;
 }
 
-.Book .book-container .add-to-next-day{
+.Book .book-container .add-to-next-day {
   margin-right: 10px;
-
 }
 
-.EditBooks{
-position: absolute;
-bottom: 40px;
-left: calc(40px + 450px + 40px);
-background: white;
-height: 80%;
-width: 450px;
-border-radius: 4px;
-opacity: 0.9;
+.EditBooks {
+  position: absolute;
+  bottom: 40px;
+  left: calc(40px + 450px + 40px);
+  background: white;
+  height: 80%;
+  width: 450px;
+  border-radius: 4px;
+  opacity: 0.9;
 }
 
-.EditBooks .header{
+.EditBooks .header {
   margin: 1rem 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   padding-bottom: 2px;
   border-bottom: 1px solid #eeeeee;
-
 }
 
-.Next7Days .day{
+.Next7Days .day {
   margin: 5px;
   display: flex;
 }
 
-.Next7Days .day .name{
+.Next7Days .day .name {
   font-weight: bold;
   font-size: 1rem;
 }
 
-.Next7Days .day .total-books{
+.Next7Days .day .total-books {
   margin-left: 10px;
 }

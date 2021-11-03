@@ -62,12 +62,10 @@ export function useFilterBooks(books, selectedCategory) {
     return filteredBooks
 }
 
-export function useCategories(books) {
+export function useCategories() {
     const [categories, setCategories] = useState([])
 
-    function calculateNumOfBooks(categoryName, books) {
-        return books.filter(book => book.categoryName === categoryName).length
-    }
+
 
     useEffect(() => {
         let unsubscribe = firebase
@@ -76,12 +74,11 @@ export function useCategories(books) {
             .onSnapshot(snapshot => {
                 const data = snapshot.docs.map(doc => {
 
-                    const categoryName = doc.data().name
 
                     return {
                         id: doc.id,
-                        name: categoryName,
-                        numOfBooks: calculateNumOfBooks(categoryName, books)
+                        name: doc.data().name
+
                     }
 
                 })
@@ -91,4 +88,21 @@ export function useCategories(books) {
     }, [])
 
     return categories
+}
+
+export function useCategoriesWithStats(categories, books) {
+    const [categoriesWithStats, setCategoriesWithStats] = useState([])
+
+    useEffect(() => {
+        const data = categories.map((category) => {
+            return {
+                numOfBooks: books.filter(book => book.categoryName === category.name && !book.checked).length,
+                ...category
+            }
+        })
+        setCategoriesWithStats(data)
+        console.log(data)
+    }, [categories, books])
+
+    return categoriesWithStats
 }
