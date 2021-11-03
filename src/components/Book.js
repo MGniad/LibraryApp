@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
+import firebase from '../firebase'
 
 function Book({ book }) {
     const [hover, setHover] = useState(false)
+
+    const deleteBook = book => {
+        firebase
+            .firestore()
+            .collection('books')
+            .doc(book.id)
+            .delete()
+    }
     return (
         <div className='Book'>
             <div className="book-container"
@@ -35,7 +44,8 @@ function Book({ book }) {
                         </span>
                     }
                 </div>
-                <div className="delete-book">
+                <div className="delete-book"
+                    onClick={() => deleteBook(book)}>
                     {
                         (hover || book.checked) &&
                         <Trash />

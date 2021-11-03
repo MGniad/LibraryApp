@@ -17,6 +17,7 @@ function BookContextProvider({ children }) {
         <BookContext.Provider
             value={
                 {
+                    defaultCategory,
                     selectedCategory,
                     setSelectedCategory,
 

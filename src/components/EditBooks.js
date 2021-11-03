@@ -37,7 +37,7 @@ function EditBooks() {
                     bookCategory={bookCategory}
                     setBookCategory={setBookCategory}
                     categories={categories}
-                    showButtons={true}
+                    showButtons={false}
 
                 />
             </div>
