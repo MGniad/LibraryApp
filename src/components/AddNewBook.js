@@ -56,7 +56,7 @@ function AddNewBook() {
     return (
         <div className='AddNewBook'>
             <div className="btn">
-                <button onClick={() => setShowModal(true)}>
+                <button onClick={() => setShowModal(true)} >
                     + New Book
                 </button>
             </div>

@@ -6,6 +6,7 @@ const BookContext = createContext()
 function BookContextProvider({ children }) {
     const defaultCategory = 'today'
     const [selectedCategory, setSelectedCategory] = useState(defaultCategory)
+    const [selectedBook, setSelectedBook] = useState(undefined)
 
     const books = useBooks()
 
@@ -25,6 +26,8 @@ function BookContextProvider({ children }) {
 
                     books: filteredBooks,
                     categories: categoriesWithStats,
+                    selectedBook,
+                    setSelectedBook,
                 }
             }
         >

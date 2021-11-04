@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
 import firebase from '../firebase'
 import moment from 'moment'
+import { BookContext } from '../context'
 
 function Book({ book }) {
     const [hover, setHover] = useState(false)
 
-    const deleteBook = book => {
+const {selectedBook, setSelectedBook} = useContext(BookContext)
+
+const handleDelete = book =>{ 
+    
+    deleteBook(book)
+    
+    if(selectedBook === book){
+        setSelectedBook(undefined)
+    }
+}
+
+const deleteBook = book => {
         firebase
             .firestore()
             .collection('books')
@@ -62,7 +74,9 @@ const repeatNextDay = book => {
                             </span>
                     }
                 </div>
-                <div className="text">
+                <div className="text"
+                onClick = {() => setSelectedBook(book)}
+                >
                     <p style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} by: {book.author}</p>
                     <span>{book.time} - {book.categoryName}</span>
                     <div className={`line ${book.checked ? 'line-trough' : ''}`}></div>
@@ -78,7 +92,7 @@ const repeatNextDay = book => {
                     }
                 </div>
                 <div className="delete-book"
-                    onClick={() => deleteBook(book)}>
+                    onClick={() => handleDelete(book)}>
                     {
                         (hover || book.checked) &&
                         <Trash />
