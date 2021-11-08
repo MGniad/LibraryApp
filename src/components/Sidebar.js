@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { BookContext } from '../context'
 
 function Sidebar({ children }){
+    const [isActive, setActive] = useState("false")
 
     const {setSelectedBook} = useContext(BookContext)
     const sidebarRef = useRef()
@@ -18,10 +19,15 @@ const handleClick = e => {
     }
 }
 
+const toogleVisibility= () =>{
+    setActive(!isActive)
+}
+
 return (
-        <div className='Sidebar'
+        <div className={`Sidebar ${!isActive ? 'visible' : '' }`}
         ref={sidebarRef}
         >
+            <button className="showHide" onClick={toogleVisibility}/>
             {children}
         </div>
     )

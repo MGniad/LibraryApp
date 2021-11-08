@@ -45,7 +45,7 @@ export function useFilterBooks(books, selectedCategory) {
 
                 const diffDays = bookDate.diff(todayDate, 'days')
 
-                return diffDays >= 0 && diffDays < 7
+                return diffDays <= 0 && diffDays > -7
             })
             console.log(data)
         } else if (selectedCategory === 'all days') {

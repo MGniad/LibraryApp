@@ -26,21 +26,34 @@ function AddNewBook() {
 
         if (text && !calendarItems.includes(bookCategory)) {
 
-            firebase
-                .firestore()
-                .collection('books')
-                .add(
-                    {
-                        text: text,
-                        author: author,
-                        date: moment(day).format('DD/MM/YYYY'),
-                        day: moment(day).format('d'),
-                        time: moment(time).format('hh:MM A'),
-                        checked: false,
-                        color: randomColor(),
-                        categoryName: bookCategory
-                    }
-                )
+            const booksRef =  firebase
+            .firestore()
+            .collection('books')
+
+            booksRef
+            .where('text', '==' , text)
+            .get()
+            .then(querySnapshot =>{
+                if(querySnapshot.empty){
+                    booksRef
+                    .add(
+                        {
+                            text: text,
+                            author: author,
+                            date: moment(day).format('DD/MM/YYYY'),
+                            day: moment(day).format('d'),
+                            time: moment(time).format('hh:MM A'),
+                            checked: false,
+                            color: randomColor(),
+                            categoryName: bookCategory
+                        }
+                    )
+
+                }else{
+                    alert('Book already exists!')
+                }
+            })
+                
 
             setShowModal(false)
             setText('')

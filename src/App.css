@@ -18,9 +18,45 @@
 
 /* Sidebar */
 .Sidebar {
+
+
   width: 300px;
   min-width: 210px;
   height: 100%;
+
+}
+
+.Sidebar .showHide {
+  display: none;
+}
+
+@media(max-width: 750px) {
+  .Sidebar {
+    flex: 0 0 0%;
+    width: 300px;
+    min-width: 0px;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+
+  }
+
+  .Sidebar .showHide {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5%;
+    right: 10px;
+    background-color: #0080ff;
+    border-radius: 50%;
+    z-index: 101;
+  }
+
+  .Sidebar.visible {
+    background-color: #acffac;
+    flex: 0 0 100%;
+    width: 700px;
+  }
 }
 
 /* Main */
@@ -164,6 +200,7 @@
   margin: 5px;
   cursor: pointer;
 }
+
 .BookForm .pick-category .categories .active {
   background: #0080ff;
   color: white;
@@ -409,6 +446,23 @@
   opacity: 0.9;
   padding: 0 0.5rem 0.5rem 0.5rem;
   overflow-y: auto;
+}
+
+@media(max-width: 750px) {
+
+  .Books {
+    width: 300px;
+    height: 80%;
+    background-color: white;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    border-radius: 4px;
+    opacity: 0.9;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    overflow-y: auto;
+  }
+
 }
 
 .Books .selected-category {
