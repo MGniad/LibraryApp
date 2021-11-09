@@ -27,7 +27,7 @@ return (
         <div className={`Sidebar ${!isActive ? 'visible' : '' }`}
         ref={sidebarRef}
         >
-            <button className="showHide" onClick={toogleVisibility}/>
+            <button className={`showHide ${!isActive ? 'open' : ''}`} onClick={toogleVisibility}/>
             {children}
         </div>
     )

@@ -17,12 +17,18 @@ function BookForm({
     setShowModal = false
 }) {
 
+    
+        const handleKeyDown = (event) => {
+          if (event.key === 'Enter') {
+            console.log('do validate')
+          }
+        }
 
 
     return (
 
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <form onSubmit={handleSubmit} className="BookForm">
+            <form onSubmit={handleSubmit} className="BookForm" onKeyDown={handleKeyDown}>
                 <div className="text">
                     {
                         heading &&
@@ -89,7 +95,9 @@ function BookForm({
                             <X size='40' />
                         </div>
                         <div className="confirm">
-                            <button>
+                            <button 
+                            
+                            >
                                 + Add book
                             </button>
                         </div>
@@ -102,5 +110,6 @@ function BookForm({
 
     )
 }
+
 
 export default BookForm

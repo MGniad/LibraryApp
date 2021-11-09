@@ -46,9 +46,21 @@
     height: 40px;
     position: absolute;
     top: 5%;
-    right: 10px;
+    left: 10px;
     background-color: #0080ff;
     border-radius: 50%;
+    z-index: 101;
+    transition: 0.5s ease-in-out;
+  }
+
+  .Sidebar .showHide.open {
+    display: inline-block;
+    width: 400px;
+    height: 40px;
+    position: absolute;
+    left: 25px;
+    background-color: #0080ff;
+    border-radius: 4px;
     z-index: 101;
   }
 
@@ -56,6 +68,11 @@
     background-color: #acffac;
     flex: 0 0 100%;
     width: 700px;
+  }
+
+  .User {
+    align-items: flex-start;
+    justify-self: flex-start;
   }
 }
 
@@ -451,7 +468,7 @@
 @media(max-width: 750px) {
 
   .Books {
-    width: 300px;
+    width: 85%;
     height: 80%;
     background-color: white;
     position: absolute;
