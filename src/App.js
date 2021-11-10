@@ -7,6 +7,7 @@ import Calendar from './components/Calendar';
 import Categories from './components/Categories';
 import Books from './components/Books';
 import EditBooks from './components/EditBooks';
+import Search  from './components/SearchBar';
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         <Categories />
 
      </Sidebar>
+     
      <Main>
+     <Search/>
       <Books />
       <EditBooks />
 

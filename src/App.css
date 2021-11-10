@@ -556,16 +556,16 @@
   border-bottom: 1px solid #eeeeee;
 }
 
-.Next7Days .day {
+.Last7Days .day {
   margin: 5px;
   display: flex;
 }
 
-.Next7Days .day .name {
+.Last7Days .day .name {
   font-weight: bold;
   font-size: 1rem;
 }
 
-.Next7Days .day .total-books {
+.Last7Days .day .total-books {
   margin-left: 10px;
 }

@@ -4,7 +4,7 @@ import { useBooks, useCategories, useCategoriesWithStats, useFilterBooks } from 
 const BookContext = createContext()
 
 function BookContextProvider({ children }) {
-    const defaultCategory = 'today'
+    const defaultCategory = 'all books'
     const [selectedCategory, setSelectedCategory] = useState(defaultCategory)
     const [selectedBook, setSelectedBook] = useState(undefined)
 

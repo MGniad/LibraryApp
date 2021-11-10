@@ -77,12 +77,12 @@ const repeatNextDay = book => {
                 <div className="text"
                 onClick = {() => setSelectedBook(book)}
                 >
-                    <p style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} by: {book.author}</p>
+                    <p style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} <br/>by: {book.author}</p>
                     <span>{book.time} - {book.categoryName}</span>
                     <div className={`line ${book.checked ? 'line-trough' : ''}`}></div>
 
                 </div>
-                <div className="add-to-next-day"
+                {/* <div className="add-to-next-day"
                 onClick={ () => repeatNextDay(book)}>
                     {
                         book.checked &&
@@ -90,7 +90,7 @@ const repeatNextDay = book => {
                             <ArrowClockwise />
                         </span>
                     }
-                </div>
+                </div> */}
                 <div className="delete-book"
                     onClick={() => handleDelete(book)}>
                     {

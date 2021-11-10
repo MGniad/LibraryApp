@@ -33,12 +33,13 @@ export function useFilterBooks(books, selectedCategory) {
     useEffect(() => {
         let data;
         const todayDateFormated = moment().format('DD/MM/YYYY')
-        console.log(todayDateFormated)
 
-        if (selectedCategory === 'today') {
-            data = books.filter(book => book.date === todayDateFormated)
+        if (selectedCategory === 'read') {
+            data = books.filter(book => book.checked === true)
             console.log(data)
-        } else if (selectedCategory === 'next 7 days') {
+        }else if (selectedCategory == 'unread') {
+            data = books.filter(book => book.checked === false)
+        } else if (selectedCategory === 'last 7 days') {
             data = books.filter(book => {
                 const bookDate = moment(book.date, 'DD/MM/YYYY')
                 const todayDate = moment(todayDateFormated, 'DD/MM/YYYY')
@@ -48,7 +49,7 @@ export function useFilterBooks(books, selectedCategory) {
                 return diffDays <= 0 && diffDays > -7
             })
             console.log(data)
-        } else if (selectedCategory === 'all days') {
+        } else if (selectedCategory === 'all books') {
             data = books
             console.log(data)
         } else {
