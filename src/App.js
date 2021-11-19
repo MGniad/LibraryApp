@@ -23,11 +23,6 @@ function App() {
      </Sidebar>
      
      <Main>
-<<<<<<< HEAD
-
-=======
-     <Search/>
->>>>>>> 2f68e1271d72844cc8df8a13014f001afe3b46ea
       <Books />
       <EditBooks />
 

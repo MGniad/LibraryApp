@@ -46,11 +46,7 @@
     height: 40px;
     position: absolute;
     top: 5%;
-<<<<<<< HEAD
     right: 10px;
-=======
-    left: 10px;
->>>>>>> 2f68e1271d72844cc8df8a13014f001afe3b46ea
     background-color: #0080ff;
     border-radius: 50%;
     z-index: 101;
@@ -74,7 +70,6 @@
     width: 700px;
   }
 
-<<<<<<< HEAD
 .Main .title{
   display: flex;
   justify-content: center;
@@ -98,8 +93,6 @@
   font-weight: 100;
 }
 
-=======
->>>>>>> 2f68e1271d72844cc8df8a13014f001afe3b46ea
   .User {
     align-items: flex-start;
     justify-self: flex-start;
