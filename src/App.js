@@ -9,6 +9,7 @@ import Books from './components/Books';
 import EditBooks from './components/EditBooks';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,9 @@ function App() {
         <Categories />
 
      </Sidebar>
+     
      <Main>
+
       <Books />
       <EditBooks />
 

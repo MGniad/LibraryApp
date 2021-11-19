@@ -4,11 +4,37 @@ import Categories from './Categories'
 import Modal from './Modal'
 import RenameCategory from './RenameCategory'
 import { BookContext } from '../context'
+import firebase from '../firebase'
 
 function Category({ category, edit }) {
-    const { setSelectedCategory } = useContext(BookContext)
+    const { defaultCategory, selectedCategory, setSelectedCategory } = useContext(BookContext)
 
     const [showModal, setShowModal] = useState(false)
+
+    const deleteCategory = category => {
+        firebase
+            .firestore()
+            .collection('categories')
+            .doc(category.id)
+            .delete()
+            .then(() => {
+                firebase
+                    .firestore()
+                    .collection('books')
+                    .where('categoryName', '==', category.name)
+                    .get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach(doc => {
+                            doc.ref.delete()
+                        })
+                    })
+            })
+            .then(() => {
+                if (selectedCategory === category.name) {
+                    setSelectedCategory(defaultCategory)
+                }
+            })
+    }
     return (
         <div className='Category'>
             <div className="Project">
@@ -27,7 +53,8 @@ function Category({ category, edit }) {
                             >
                                 <Pencil size="13" />
                             </span>
-                            <span className="delete">
+                            <span className="delete"
+                                onClick={() => deleteCategory(category)}>
                                 <XCircle size="13" />
                             </span>
                         </div>

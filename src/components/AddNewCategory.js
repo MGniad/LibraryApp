@@ -16,7 +16,8 @@ function AddNewCategory() {
 
             categoriesRef
                 .where('name', '==', categoryName)
-                .get(querySnapshot => {
+                .get()
+                .then(querySnapshot => {
                     if (querySnapshot.empty) {
                         categoriesRef
                             .add({

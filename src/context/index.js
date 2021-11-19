@@ -1,15 +1,18 @@
 import React, { createContext, useState } from "react";
-import { useBooks, useCategories, useFilterBooks, useFiltersBooks } from "../hooks"
+import { useBooks, useCategories, useCategoriesWithStats, useFilterBooks } from "../hooks"
 
 const BookContext = createContext()
 
 function BookContextProvider({ children }) {
-    const defaultCategory = 'today'
+    const defaultCategory = 'all books'
     const [selectedCategory, setSelectedCategory] = useState(defaultCategory)
+    const [selectedBook, setSelectedBook] = useState(undefined)
 
     const books = useBooks()
 
-    const categories = useCategories(books)
+    const categories = useCategories()
+
+    const categoriesWithStats = useCategoriesWithStats(categories, books)
 
     const filteredBooks = useFilterBooks(books, selectedCategory)
 
@@ -17,11 +20,14 @@ function BookContextProvider({ children }) {
         <BookContext.Provider
             value={
                 {
+                    defaultCategory,
                     selectedCategory,
                     setSelectedCategory,
 
                     books: filteredBooks,
-                    categories,
+                    categories: categoriesWithStats,
+                    selectedBook,
+                    setSelectedBook,
                 }
             }
         >

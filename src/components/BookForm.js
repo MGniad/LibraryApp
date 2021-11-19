@@ -17,12 +17,18 @@ function BookForm({
     setShowModal = false
 }) {
 
+    
+        const handleKeyDown = (event) => {
+          if (event.key === 'Enter') {
+            console.log('do validate')
+          }
+        }
 
 
     return (
 
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <form onSubmit={handleSubmit} className="BookForm">
+            <form onSubmit={handleSubmit} className="BookForm" onKeyDown={handleKeyDown}>
                 <div className="text">
                     {
                         heading &&
@@ -31,10 +37,6 @@ function BookForm({
                     <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Title" autoFocus />
                     <input type="text" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Author" />
                 </div>
-                <div className="remind">
-                    <Bell />
-                    <p>Remind Me!</p>
-                </div>
                 <div className="pick-day">
                     <div className="title">
                         <CalendarDay />
@@ -42,6 +44,7 @@ function BookForm({
                     <DatePicker
                         value={day}
                         onChange={day => setDay(day)}
+                    disabled
                     />
                 </div>
                 <div className="pick-time">
@@ -51,6 +54,7 @@ function BookForm({
                     <TimePicker
                         value={time}
                         onChange={time => setTime(time)}
+                        disabled
                     />
                 </div>
                 <div className="pick-category">
@@ -89,7 +93,9 @@ function BookForm({
                             <X size='40' />
                         </div>
                         <div className="confirm">
-                            <button>
+                            <button 
+                            
+                            >
                                 + Add book
                             </button>
                         </div>
@@ -102,5 +108,6 @@ function BookForm({
 
     )
 }
+
 
 export default BookForm

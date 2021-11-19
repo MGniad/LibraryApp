@@ -1,23 +1,38 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Book from './Book'
-import Next7Days from './Next7Days'
+import Last7Days from './Last7Days'
 import { BookContext } from '../context'
 
+
 function Books() {
+    
+    const[ searchWord, setSearchWord] = useState('')
     const { books, selectedCategory } = useContext(BookContext)
 
+   const searchFilter = books.filter( book => {
+       return book.text.toLowerCase().includes(searchWord.toLocaleLowerCase())
+   })
 
     return (
+        
         <div className='Books'>
+           
+           <input 
+           type="text"
+           placeholder = "search..."
+           onChange ={e => setSearchWord(e.target.value)}
+           />
+            
             <div className="selected-category">
                 {selectedCategory}
             </div>
             <div className="books">
                 {
-                    selectedCategory === "next 7 days" ?
-                        <Next7Days books={books} />
+                    selectedCategory === "last 7 days" ?
+                        <Last7Days books={books} />
                         :
-                        books.map(book =>
+                        searchFilter
+                        .map(book =>
                             <Book book={book} key={book.id} />
                         )
                 }

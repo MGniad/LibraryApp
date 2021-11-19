@@ -32,23 +32,29 @@ export function useFilterBooks(books, selectedCategory) {
 
     useEffect(() => {
         let data;
-        const todayDateFormated = moment().format('DD/MM/YY')
+        const todayDateFormated = moment().format('DD/MM/YYYY')
 
-        if (selectedCategory === 'today') {
-            data = books.filter(book => book.date === todayDateFormated)
-        } else if (selectedCategory === 'next 7 days') {
+        if (selectedCategory === 'read') {
+            data = books.filter(book => book.checked === true)
+            console.log(data)
+        }else if (selectedCategory == 'unread') {
+            data = books.filter(book => book.checked === false)
+        } else if (selectedCategory === 'last 7 days') {
             data = books.filter(book => {
-                const bookDate = moment(book.date, 'DD/MM/YY')
-                const todayDate = moment(todayDateFormated, 'DD/MM/YY')
+                const bookDate = moment(book.date, 'DD/MM/YYYY')
+                const todayDate = moment(todayDateFormated, 'DD/MM/YYYY')
 
                 const diffDays = bookDate.diff(todayDate, 'days')
 
-                return diffDays >= 0 && diffDays < 7
+                return diffDays <= 0 && diffDays > -7
             })
-        } else if (selectedCategory === 'all days') {
+            console.log(data)
+        } else if (selectedCategory === 'all books') {
             data = books
+            console.log(data)
         } else {
             data = books.filter(book => book.categoryName === selectedCategory)
+            console.log(data)
         }
 
         setFilteredBooks(data)
@@ -57,12 +63,10 @@ export function useFilterBooks(books, selectedCategory) {
     return filteredBooks
 }
 
-export function useCategories(books) {
+export function useCategories() {
     const [categories, setCategories] = useState([])
 
-    function calculateNumOfBooks(categoryName, books) {
-        return books.filter(book => book.categoryName === categoryName).length
-    }
+
 
     useEffect(() => {
         let unsubscribe = firebase
@@ -71,12 +75,11 @@ export function useCategories(books) {
             .onSnapshot(snapshot => {
                 const data = snapshot.docs.map(doc => {
 
-                    const categoryName = doc.data().name
 
                     return {
                         id: doc.id,
-                        name: categoryName,
-                        numOfBooks: calculateNumOfBooks(categoryName, books)
+                        name: doc.data().name
+
                     }
 
                 })
@@ -86,4 +89,21 @@ export function useCategories(books) {
     }, [])
 
     return categories
+}
+
+export function useCategoriesWithStats(categories, books) {
+    const [categoriesWithStats, setCategoriesWithStats] = useState([])
+
+    useEffect(() => {
+        const data = categories.map((category) => {
+            return {
+                numOfBooks: books.filter(book => book.categoryName === category.name && !book.checked).length,
+                ...category
+            }
+        })
+        setCategoriesWithStats(data)
+        console.log(data)
+    }, [categories, books])
+
+    return categoriesWithStats
 }
