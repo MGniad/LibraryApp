@@ -17,11 +17,14 @@ function Books() {
         
         <div className='Books'>
            
+           <div className="searchBar">
            <input 
            type="text"
            placeholder = "search..."
            onChange ={e => setSearchWord(e.target.value)}
            />
+           
+           </div>
             
             <div className="selected-category">
                 {selectedCategory}

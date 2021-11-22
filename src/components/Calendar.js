@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { CalendarDate, CaretUp } from 'react-bootstrap-icons'
+import { Book, CaretUp } from 'react-bootstrap-icons'
 import { calendarItems } from '../constants'
 import { BookContext } from '../context'
 
@@ -11,8 +11,8 @@ function Calendar() {
         <div className='Calendar'>
             <div className="header">
                 <div className="title">
-                    <CalendarDate size='18px' />
-                    <p>Calendar</p>
+                    <Book size='18px' />
+                    <p>My Books</p>
                 </div>
                 <div className="btns">
                     <span>

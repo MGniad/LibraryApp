@@ -1,4 +1,3 @@
-import { onSnapshot } from "firebase/firestore";
 import moment from 'moment';
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
@@ -37,7 +36,7 @@ export function useFilterBooks(books, selectedCategory) {
         if (selectedCategory === 'read') {
             data = books.filter(book => book.checked === true)
             console.log(data)
-        }else if (selectedCategory == 'unread') {
+        }else if (selectedCategory === 'unread') {
             data = books.filter(book => book.checked === false)
         } else if (selectedCategory === 'last 7 days') {
             data = books.filter(book => {
@@ -107,3 +106,4 @@ export function useCategoriesWithStats(categories, books) {
 
     return categoriesWithStats
 }
+

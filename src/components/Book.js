@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
+import {CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
 import firebase from '../firebase'
 import moment from 'moment'
 import { BookContext } from '../context'
@@ -77,20 +77,12 @@ const repeatNextDay = book => {
                 <div className="text"
                 onClick = {() => setSelectedBook(book)}
                 >
-                    <p style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} <br/>by: {book.author}</p>
-                    <span>{book.time} - {book.categoryName}</span>
+                    <p className="check" style={{ color: book.checked ? '#bebebe' : '#000000' }}>{book.text} <br/>by: {book.author}</p>
+                    <span>{book.date} - {book.categoryName}</span>
                     <div className={`line ${book.checked ? 'line-trough' : ''}`}></div>
 
                 </div>
-                {/* <div className="add-to-next-day"
-                onClick={ () => repeatNextDay(book)}>
-                    {
-                        book.checked &&
-                        <span>
-                            <ArrowClockwise />
-                        </span>
-                    }
-                </div> */}
+                
                 <div className="delete-book"
                     onClick={() => handleDelete(book)}>
                     {
