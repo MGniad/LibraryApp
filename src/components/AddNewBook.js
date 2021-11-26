@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Modal from './Modal'
 import BookForm from './BookForm'
 import { BookContext } from '../context'
-import { calendarItems } from '../constants'
+import { booksItems } from '../constants'
 import firebase from '../firebase'
 import moment from 'moment'
 import randomColor from 'randomcolor'
@@ -24,7 +24,7 @@ function AddNewBook() {
     function handleSubmit(e) {
         e.preventDefault()
 
-        if (text && !calendarItems.includes(bookCategory)) {
+        if (text && !booksItems.includes(bookCategory)) {
 
             const booksRef =  firebase
             .firestore()

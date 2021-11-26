@@ -37,7 +37,7 @@ function BookForm({
                     <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Title" autoFocus />
                     <input type="text" value={author} onChange={e => setAuthor(e.target.value)} placeholder="Author" />
                 </div>
-                <div className="pick-day">
+                {/* <div className="pick-day">
                     <div className="title">
                         <CalendarDay />
                     </div>
@@ -46,8 +46,8 @@ function BookForm({
                         onChange={day => setDay(day)}
                     disabled
                     />
-                </div>
-                <div className="pick-time">
+                </div> */}
+                {/* <div className="pick-time">
                     <div className="title">
                         <Clock />
                     </div>
@@ -56,7 +56,7 @@ function BookForm({
                         onChange={time => setTime(time)}
                         disabled
                     />
-                </div>
+                </div> */}
                 <div className="pick-category">
                     <div className="title">
                         <Journals />

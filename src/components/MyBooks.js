@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { Book, CaretUp } from 'react-bootstrap-icons'
-import { calendarItems } from '../constants'
+import { booksItems } from '../constants'
 import { BookContext } from '../context'
 
-function Calendar() {
+function MyBooks() {
     const { setSelectedCategory } = useContext(BookContext)
 
 
     return (
-        <div className='Calendar'>
+        <div className='MyBooks'>
             <div className="header">
                 <div className="title">
                     <Book size='18px' />
@@ -23,7 +23,7 @@ function Calendar() {
             <div className="items">
                 {
 
-                    calendarItems.map(item =>
+                    booksItems.map(item =>
                         <div className="item"
                             key={item}
                             onClick={() => setSelectedCategory(item)}
@@ -38,4 +38,4 @@ function Calendar() {
     )
 }
 
-export default Calendar
+export default MyBooks

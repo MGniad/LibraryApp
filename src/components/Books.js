@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Search } from 'react-bootstrap-icons'
 import Book from './Book'
 import Last7Days from './Last7Days'
 import { BookContext } from '../context'
@@ -18,11 +19,15 @@ function Books() {
         <div className='Books'>
            
            <div className="searchBar">
+           <span className="searchIcon">
+            <Search/>
+           </span>
            <input 
            type="text"
            placeholder = "search..."
            onChange ={e => setSearchWord(e.target.value)}
            />
+           
            
            </div>
             

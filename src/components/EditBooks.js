@@ -3,6 +3,7 @@ import BookForm from './BookForm'
 import  {BookContext}  from '../context'
 import moment from 'moment'
 import firebase from '../firebase'
+import Modal from './Modal'
 
 function EditBooks() {
 
@@ -11,6 +12,7 @@ function EditBooks() {
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
     const [bookCategory, setBookCategory] = useState('')
+    const [showModal, setShowModal] = useState(false)
 
     const { selectedBook, categories } = useContext(BookContext)
 
@@ -19,10 +21,10 @@ function EditBooks() {
         if(selectedBook){
         setText(selectedBook.text)
         setAuthor(selectedBook.author)
-        setDay(moment(selectedBook.date, 'DD/MM/YYYY'))
-        setTime(moment(selectedBook.time, 'hh:mm A'))
         setBookCategory(selectedBook.categoryName)
-        }
+
+    }
+
     }, [selectedBook])
 
     useEffect(() =>{
@@ -34,12 +36,9 @@ function EditBooks() {
         .update({
             text,
             author,
-            date : moment(day).format('DD/MM/YYYY'),
-            day : moment(day).format('d'),
-            time : moment(time).format('hh:mm A'),
             categoryName : bookCategory
         })
-    }},[text, author, time, day, bookCategory])
+    }},[text, author, bookCategory])
    
     function handleSubmit(e) {
 
@@ -51,6 +50,7 @@ function EditBooks() {
             <div className='EditBooks'>
             <div className="header">EditBooks</div>
             <div className="container">
+                
                 <BookForm
                     handleSubmit={handleSubmit}
 
@@ -58,16 +58,13 @@ function EditBooks() {
                     setText={setText}
                     author={author}
                     setAuthor={setAuthor}
-                    day={day}
-                    setDay={setDay}
-                    time={time}
-                    setTime={setTime}
                     bookCategory={bookCategory}
                     setBookCategory={setBookCategory}
                     categories={categories}
-                    showButtons={false}
+                    
 
                 />
+                
             </div>
         </div>}
         </div>
