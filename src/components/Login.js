@@ -18,7 +18,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await access(emailRef.current.value, passwordRef.current.value);
-      navigate("/library");
+      navigate("/");
     } catch (error) {
       console.log(error);
       //   setError("Failed to sign in");

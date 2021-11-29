@@ -25,6 +25,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { useAuth } from "./firebase";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -40,7 +41,9 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 {/* <Route path="/library" element={<Library />} /> */}
-                <Route path="/library" element={<Library />} />
+                <Route exact path="/" element={<PrivateRoute />}>
+                  <Route exact path="/" element={<Library />} />
+                </Route>
               </Routes>
             </AuthProvider>
           </Router>
