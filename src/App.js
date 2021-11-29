@@ -16,6 +16,8 @@ import Signup from "./components/Signup";
 
 import Library from "./components/Library";
 
+import ForgotPassword from "./components/FrogotPassword";
+
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./context/AuthContext";
 import {
@@ -40,7 +42,7 @@ function App() {
               <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
-                {/* <Route path="/library" element={<Library />} /> */}
+                <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route exact path="/" element={<PrivateRoute />}>
                   <Route exact path="/" element={<Library />} />
                 </Route>

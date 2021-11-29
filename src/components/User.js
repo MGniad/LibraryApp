@@ -24,7 +24,7 @@ function User() {
       <div className="logo">
         <img src={logo} alt="logo" />
         <div className="info">
-          <p>Marek</p>
+          <p>{currentUser.email}</p>
           <a onClick={handleLogout}>Logout!</a>
         </div>
       </div>

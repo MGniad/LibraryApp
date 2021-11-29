@@ -9,6 +9,7 @@ export default function Signup() {
   const passwordConfirmRef = useRef();
   const { register } = useAuth();
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
@@ -20,9 +21,10 @@ export default function Signup() {
 
     try {
       setError("");
+      setMessage("");
       setLoading(true);
       await register(emailRef.current.value, passwordRef.current.value);
-      setError("Succesfuly registered");
+      setMessage("Succesfuly registered");
     } catch {
       setError("Failed to create an account");
     }
@@ -36,6 +38,7 @@ export default function Signup() {
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
