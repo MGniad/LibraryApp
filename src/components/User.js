@@ -25,7 +25,8 @@ function User() {
         <img src={logo} alt="logo" />
         <div className="info">
           <p>{currentUser.email}</p>
-          <a onClick={handleLogout}>Logout!</a>
+          <a href="/update-profile">Update Profile</a>
+          <p onClick={handleLogout}>Logout!</p>
         </div>
       </div>
     </div>
