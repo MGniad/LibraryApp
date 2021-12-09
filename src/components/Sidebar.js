@@ -1,36 +1,43 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { BookContext } from '../context'
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { BookContext } from "../context";
+import { Hamburger, List } from "react-bootstrap-icons";
 
-function Sidebar({ children }){
-    const [isActive, setActive] = useState("false")
+function Sidebar({ children }) {
+  const [isActive, setActive] = useState("false");
 
-    const {setSelectedBook} = useContext(BookContext)
-    const sidebarRef = useRef()
+  const { setSelectedBook } = useContext(BookContext);
+  const sidebarRef = useRef();
 
-useEffect(() => {
-    document.addEventListener('click', handleClick)
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
 
-    return () => document.removeEventListener('click', handleClick)
-})
+    return () => document.removeEventListener("click", handleClick);
+  });
 
-const handleClick = e => {
-    if(e.target == sidebarRef.current || sidebarRef.current.contains(e.target)){
-        setSelectedBook(undefined)
+  const handleClick = (e) => {
+    if (
+      e.target == sidebarRef.current ||
+      sidebarRef.current.contains(e.target)
+    ) {
+      setSelectedBook(undefined);
     }
+  };
+
+  const toogleVisibility = () => {
+    setActive(!isActive);
+  };
+
+  return (
+    <div className={`Sidebar ${!isActive ? "visible" : ""}`} ref={sidebarRef}>
+      <button
+        className={`showHide ${!isActive ? "open" : ""}`}
+        onClick={toogleVisibility}
+      >
+        <List />
+      </button>
+      {children}
+    </div>
+  );
 }
 
-const toogleVisibility= () =>{
-    setActive(!isActive)
-}
-
-return (
-        <div className={`Sidebar ${!isActive ? 'visible' : '' }`}
-        ref={sidebarRef}
-        >
-            <button className={`showHide ${!isActive ? 'open' : ''}`} onClick={toogleVisibility}/>
-            {children}
-        </div>
-    )
-}
-
-export default Sidebar
+export default Sidebar;
